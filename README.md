@@ -24,23 +24,34 @@ pip install -r requirements.txt
 ```
 
 
-## 2&nbsp; Train
+## 2&nbsp; Experiment
+
+### 2.1&nbsp; Data Acquisition
+
+The data acquisition and preprocessing procedures are consistent for all three tasks. EEG data are recorded using the SynAmp2 system (Neuroscan, Australia) with 64-channel Ag/AgCl electrodes placed according to the international 10/20 system, with a sampling rate of 1000 Hz. All the electrodes with an impedance of 10 kΩ or lower are referenced to the vertex and grounded on the AFz channel.
+
+### 2.2&nbsp; Data Preprocessing
+
+The collected EEG data are downsampled to 250 Hz. Subsequently, a linear phase 3-order Butterworth filter with a bandpass ranging from 0.5 to 15 Hz is applied to the signal to eliminate slow drift and high-frequency noise and prevent delay distortions. Next, the preprocessed data from each block are segmented into EEG trials. Each trial consists of 1-second EEG data starting from the stimulation onset to 1000 milliseconds (0 s to 1 s) after the stimulation onset. For each trial, data are normalized to zero mean and variance one. The subsequent analysis and classification of EEG signals rely on these segmented EEG trials (samples).
+
+
+## 3&nbsp; Train
 
 The TSformer-SA is optimized using the two-stage training strategy. The data from existing subjects are first utilized to pretrain the TSformer in advance and the data from new test subject are used to only fine-tune the subjectspecific adapter in the fine-tuning stage.
 
-### 2.1&nbsp; Pre-training
+### 3.1&nbsp; Pre-training
 
 ```bash
 python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSformer-SA/Pre_train.py
 ```
-### 2.2&nbsp; Fine-tuning
+### 3.2&nbsp; Fine-tuning
 
 ```bash
 python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSformer-SA/Fine_tune.py
 ```
 
 
-## 3&nbsp; Cite
+## 4&nbsp; Cite
 
 If you find this code or our TSformer-SA paper helpful for your research, please cite our paper:
 

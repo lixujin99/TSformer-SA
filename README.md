@@ -5,8 +5,8 @@ The official implementation of **[A Temporal-Spectral Fusion Transformer with Su
 
 ![alt text](figure/Model1_revision.png)
 
-TSformer-SA is a symmetrical dual-stream Transformer comprising a feature extractor, a cross-view interaction module, a fusion module, and a subject-specific adapter. The inputs of the model are EEG temporal signals as the temporal view and the spectrogram of each
-channel computed using CWT as the spectral view.
+TSformer-SA is a symmetrical dual-stream Transformer comprising a feature extractor, a cross-view interaction module, a fusion module, and a subject-specific adapter. The inputs consist of EEG temporal signals representing the temporal view and the spectrogram images representing the spectral view. The feature extractor tokenizes the inputs and extracts the view-specific features. Subsequently, the cross-view interaction module extracts the common features from both views and the fusion module fuses the two-view features for classification. The above three modules are trained during the pre-training stage and only the subject-specific adapter is trained in the fine-tuning stage.
+
 
 ## Installation
 
@@ -24,6 +24,8 @@ pip install -r requirements.txt
 python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSformer-SA/Pre_train.py
 python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSformer-SA/Fine_tune.py
 ```
+
+
 
 ## Cite
 

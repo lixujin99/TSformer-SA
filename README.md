@@ -23,12 +23,21 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+
 ## Train
+
+The TSformer-SA is optimized using the two-stage training strategy. The data from existing subjects are first utilized to pretrain the TSformer in advance and the data from new test subject are used to only fine-tune the subjectspecific adapter in the fine-tuning stage.
+
+### Pre-training
+
 ```bash
 python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSformer-SA/Pre_train.py
+```
+### Fine-tuning
+
+```bash
 python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSformer-SA/Fine_tune.py
 ```
-
 
 
 ## Cite

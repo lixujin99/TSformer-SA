@@ -16,6 +16,10 @@ Create and activate the environment:
 ```shell
 conda create -n tsformer python=3.9
 conda activate tsformer
+```
+
+Install dependencies:
+```shell
 pip install -r requirements.txt
 ```
 

@@ -1,6 +1,6 @@
 # TSformer-SA
 
-The official implementation of **A Temporal-Spectral Fusion Transformer with Subject-specific Adapter for Enhancing RSVP-BCI Decoding**.
+The official implementation of **A Temporal-Spectral Fusion Transformer with Subject-Specific Adapter for Enhancing RSVP-BCI Decoding**.
 
 
 ![alt text](figure/Model1_revision.png)

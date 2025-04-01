@@ -1,6 +1,6 @@
 # TSformer-SA
 
-The official implementation of **A Temporal-Spectral Fusion Transformer with Subject-Specific Adapter for Enhancing RSVP-BCI Decoding**.
+The official implementation of **[A Temporal-Spectral Fusion Transformer with Subject-Specific Adapter for Enhancing RSVP-BCI Decoding](https://doi.org/10.1016/j.neunet.2024.106844)**.
 
 
 ![alt text](figure/Model1_revision.png)
@@ -56,10 +56,13 @@ python -m torch.distributed.launch --master_port 29502 --nproc_per_node=2 /TSfor
 If you find this code or our TSformer-SA paper helpful for your research, please cite our paper:
 
 ```bibtex
-@article{li2024temporal,
-  title={A Temporal-Spectral Fusion Transformer with Subject-specific Adapter for Enhancing RSVP-BCI Decoding},
+@article{li2025temporal,
+  title={A temporal--spectral fusion transformer with subject-specific adapter for enhancing RSVP-BCI decoding},
   author={Li, Xujin and Wei, Wei and Qiu, Shuang and He, Huiguang},
-  journal={arXiv preprint arXiv:2401.06340},
-  year={2024}
+  journal={Neural Networks},
+  volume={181},
+  pages={106844},
+  year={2025},
+  publisher={Elsevier}
 }
 ```
